@@ -39,12 +39,14 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+ 
+
     // request to server to generate token
 
     this.loginservice.generateToken(this.loginData).subscribe(
       (data: any) => {
         console.log('Success');
-        console.log(data);
+        //console.log(data);
 
 
         //login...
@@ -52,13 +54,12 @@ export class LoginComponent implements OnInit {
 
         this.loginservice.getCurrentUser().subscribe((user: any) => {
           this.loginservice.setUser(user);
-          console.log(user);
+         // console.log(user);
           //redirect ...ADMIN: admin-dashboard
           //redirect ...NORMAL:normal-dashboard
           if (this.loginservice.getUserRole() == 'ADMIN') {
             //admin dashboard
             //window.location.href = '/admin';
-
 
             this.router.navigate(['admin']);
             this.loginservice.loginStatusSubject.next(true);
@@ -66,10 +67,14 @@ export class LoginComponent implements OnInit {
             //normal user dashbaord
             // window.location.href = '/user';
 
-
             this.router.navigate(['user']);
             this.loginservice.loginStatusSubject.next(true);
-          } else {
+          }else if (this.loginservice.getUserRole() == 'CANDIDATE') {
+            //candidate dashbaord
+
+            this.router.navigate(['candidate']);
+            this.loginservice.loginStatusSubject.next(true);
+          }else {
             this.loginservice.logout();
           }
         });

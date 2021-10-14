@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import api.examportal.model.exam.Exam;
 import api.examportal.model.exam.Question;
 import api.examportal.model.exam.Quiz;
+import api.examportal.service.ExamService;
 import api.examportal.service.QuestionService;
 import api.examportal.service.QuizService;
 
@@ -33,6 +35,9 @@ public class QuestionController {
 	@Autowired
 	private QuizService quizService;
 
+	@Autowired
+	private ExamService examService;
+
 	// add question
 	@PostMapping("/")
 	public ResponseEntity<Question> add(@RequestBody Question question) {
@@ -45,7 +50,7 @@ public class QuestionController {
 		return ResponseEntity.ok(this.service.updateQuestion(question));
 	}
 
-	// get all question of any quid
+	// get all question of any quizId
 	@GetMapping("/quiz/{qid}")
 	public ResponseEntity<?> getQuestionsOfQuiz(@PathVariable("qid") Long qid) {
 //        Quiz quiz = new Quiz();
@@ -64,14 +69,30 @@ public class QuestionController {
 
 	}
 
+	// get all question of any examId
+	@GetMapping("/exam/{qid}")
+	public ResponseEntity<?> getQuestionsOfExam(@PathVariable("qid") Long qid) {
+
+		Exam exam = this.examService.getExam(qid);
+		Set<Question> questions = exam.getQuestions();
+		List list = new ArrayList(questions);
+		if (list.size() > Integer.parseInt(exam.getNumberOfQuestions())) {
+			list = list.subList(0, Integer.parseInt(exam.getNumberOfQuestions() + 1));
+		}
+		Collections.shuffle(list);
+		return ResponseEntity.ok(list);
+
+	}
+	
+	
+		
+
 	@GetMapping("/quiz/all/{qid}")
 	public ResponseEntity<?> getQuestionsOfQuizAdmin(@PathVariable("qid") Long qid) {
 		Quiz quiz = new Quiz();
 		quiz.setqId(qid);
 		Set<Question> questionsOfQuiz = this.service.getQuestionsOfQuiz(quiz);
 		return ResponseEntity.ok(questionsOfQuiz);
-
-//        return ResponseEntity.ok(list);
 
 	}
 
@@ -80,6 +101,22 @@ public class QuestionController {
 	public Question get(@PathVariable("quesId") Long quesId) {
 		return this.service.getQuestion(quesId);
 	}
+	
+	
+	
+	@GetMapping("/exam/all/{qid}")
+	public ResponseEntity<?> getQuestionsOfExamAdmin(@PathVariable("qid") Long qid) {
+		Exam exam = new Exam();
+		exam.setExId(qid);
+		Set<Question> questionsOfExam = this.service.getQuestionsOfExam(exam);
+		return ResponseEntity.ok(questionsOfExam);
+
+	}
+	
+	
+	
+	
+	
 
 	// delete question
 	@DeleteMapping("/{quesId}")

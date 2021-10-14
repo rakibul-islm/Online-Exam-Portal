@@ -40,7 +40,22 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
 import { LoadQuizComponent } from './pages/user/load-quiz/load-quiz.component';
 import { StartComponent } from './pages/user/start/start.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { CandidateDashboardComponent } from './pages/canidate/candidate-dashboard/candidate-dashboard.component';
+import { ExamStartComponent } from './pages/canidate/exam-start/exam-start.component';
+import { ExamInstructionsComponent } from './pages/canidate/exam-instructions/exam-instructions.component';
+import { ViewExamsComponent } from './pages/admin/view-exams/view-exams.component';
+import { AddExamComponent } from './pages/admin/add-exam/add-exam.component';
+import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.component';
+import { ViewExamQuestionsComponent } from './pages/admin/view-exam-questions/view-exam-questions.component';
+import { ViewCandidateComponent } from './pages/admin/view-candidate/view-candidate.component';
+import { AddCandidateComponent } from './pages/admin/add-candidate/add-candidate.component';
+import { AddExamQuestionComponent } from './pages/admin/add-exam-question/add-exam-question.component';
+import {MatTableModule} from '@angular/material/table';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { UpdateCandidateComponent } from './pages/admin/update-candidate/update-candidate.component';
+import { ResultComponent } from './pages/admin/result/result.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +80,19 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     InstructionsComponent,
     LoadQuizComponent,
     StartComponent,
+    CandidateDashboardComponent,
+    ExamStartComponent,
+    ExamInstructionsComponent,
+    ViewExamsComponent,
+    AddExamComponent,
+    UpdateExamComponent,
+    ViewExamQuestionsComponent,
+    ViewCandidateComponent,
+    AddCandidateComponent,
+    AddExamQuestionComponent,
+    UpdateCandidateComponent,
+    ResultComponent,
+
   
   ],
   imports: [
@@ -84,7 +112,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatSlideToggleModule,
     MatSelectModule,
     CKEditorModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatTableModule,
+    MatDatepickerModule,
+    NgxMaterialTimepickerModule,
+    MatNativeDateModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

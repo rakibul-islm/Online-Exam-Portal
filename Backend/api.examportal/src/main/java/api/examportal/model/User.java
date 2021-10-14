@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -17,6 +18,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import api.examportal.model.exam.Exam;
 
 @Entity
 @Table(name = "users")
@@ -33,6 +36,8 @@ public class User implements UserDetails {
 	private String phone;
 	private boolean enabled = true;
 	private String profile;
+
+	private int obtMarks;
 	
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
@@ -40,16 +45,20 @@ public class User implements UserDetails {
 	private Set<UserRole> userRoles = new HashSet<>();
 	
 	
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Exam exam;
+	
+	
 	public User() {
 	}
 	
+
 	
 
-
-
-
 	public User(Long id, String username, String password, String firstName, String lastName, String email,
-			String phone, boolean enabled, String profile) {
+			String phone, boolean enabled, String profile, int obtMarks, Set<UserRole> userRoles,
+			Exam exam) {
+		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
@@ -59,13 +68,19 @@ public class User implements UserDetails {
 		this.phone = phone;
 		this.enabled = enabled;
 		this.profile = profile;
+		this.obtMarks = obtMarks;
+		this.userRoles = userRoles;
+		this.exam = exam;
 	}
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 	public Set<UserRole> getUserRoles() {
 		return userRoles;
 	}
@@ -136,8 +151,29 @@ public class User implements UserDetails {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+	
 
 
+
+	public int getObtMarks() {
+		return obtMarks;
+	}
+
+
+
+	public void setObtMarks(int obtMarks) {
+		this.obtMarks = obtMarks;
+	}
+
+
+	public Exam getExam() {
+		return exam;
+	}
+
+
+	public void setExam(Exam exam) {
+		this.exam = exam;
+	}
 
 
 

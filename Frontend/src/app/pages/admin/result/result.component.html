@@ -1,0 +1,46 @@
+<h1 class="mt20">Candidates Result</h1>
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            
+            <table class="mat-elevation-z8 demo-table">
+
+                <tr class="head">
+                    <td scope="col">#SN</td>
+                    <td scope="col">Username</td>
+                    <td scope="col">Candidate</td>
+                    <td scope="col">Email</td>
+                    <td scope="col">Mobile</td>
+                    <td scope="col" class="text-center"> Obtained Marks</td>
+                    <td scope="col" class="text-center"> Send Email</td>
+                </tr>
+
+
+
+                <tr  *ngFor="let u of user; let i = index">
+
+                    
+                    <td *ngIf="u.obtMarks!=0"> &nbsp;&nbsp; {{ i + 1 }}.</td>
+                    <td *ngIf="u.obtMarks!=0" [innerHTML]="u.username"></td>
+                    <td *ngIf="u.obtMarks!=0" [innerHTML]="u.firstName + ' '+ u.lastName"></td>
+                    <td *ngIf="u.obtMarks!=0" [innerHTML]="u.email"></td>
+                    <td *ngIf="u.obtMarks!=0" [innerHTML]="u.phone"></td>
+                    <td *ngIf="u.obtMarks!=0" class="text-center green" [innerHTML]="u.obtMarks"></td>
+                    <td *ngIf="u.obtMarks!=0" class="text-center">
+                        <button mat-button (click)="deleteCandidate(u.id)">
+                            <mat-icon mat-list-icon>send </mat-icon> Send Email
+                        </button>
+                    </td>
+
+                
+                </tr>
+            </table>
+
+
+
+
+
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="current">
     <h1>Add New Quiz</h1>
     <div class="container">
       <div class="row">
@@ -35,7 +35,7 @@
               <div class="col-md-6">
                 <!-- //max marks -->
                 <mat-form-field class="w100" appearance="fill">
-                  <mat-label>Maximum Marks</mat-label>
+                  <mat-label>Full Marks</mat-label>
                   <input
                     [(ngModel)]="quizData.maxMarks"
                     type="text"
@@ -81,7 +81,7 @@
               </mat-select>
             </mat-form-field>
   
-            <div class="container text-center">
+            <div class="container text-center mt20">
               <button mat-raised-button color="primary" type="submit"> Add </button>
             </div>
           </form>

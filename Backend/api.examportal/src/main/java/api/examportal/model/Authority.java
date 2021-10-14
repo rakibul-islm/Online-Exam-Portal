@@ -16,4 +16,11 @@ public class Authority implements GrantedAuthority{
 		return this.authority;
 	}
 
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
+	
+	
+	
+
 }

@@ -36,7 +36,7 @@ public class Application implements CommandLineRunner {
 		
 		  User user = new User(); user.setFirstName("RAKIBUL");
 		  user.setLastName("ISLAM"); user.setEmail("mdr048454@gmail.com");
-		  user.setPhone("01626016869"); user.setUsername("rakib123");
+		  user.setPhone("01626016869"); user.setUsername("admin");
 		  user.setPassword(this.bCryptPasswordEncoder.encode("123"));
 		  user.setProfile("default.png");
 		  

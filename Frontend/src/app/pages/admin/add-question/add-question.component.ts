@@ -14,9 +14,11 @@ export class AddQuestionComponent implements OnInit {
   public Editor:any = ClassicEditor;
 
   qId:any;
+  exId:any;
   qTitle:any;
   question:any = {
     quiz: {},
+   // exam: {},
     content: '',
     option1: '',
     option2: '',
@@ -32,8 +34,10 @@ export class AddQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     this.qId = this._route.snapshot.params.qid;
+   // this.exId = this._route.snapshot.params.exId;
     this.qTitle = this._route.snapshot.params.title;
     this.question.quiz['qId'] = this.qId;
+   // this.question.exam['exId'] = this.exId;
   }
 
   formSubmit() {

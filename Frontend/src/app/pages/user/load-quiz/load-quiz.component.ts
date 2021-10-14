@@ -22,7 +22,7 @@ export class LoadQuizComponent implements OnInit {
         this._quiz.getActiveQuizzes().subscribe(
           (data: any) => {
             this.quizzes = data;
-            console.log(this.quizzes);
+            //console.log(this.quizzes);
           },
           (error) => {
             console.log(error);
@@ -35,7 +35,7 @@ export class LoadQuizComponent implements OnInit {
         this._quiz.getActiveQuizzesOfCategory(this.catId).subscribe(
           (data: any) => {
             this.quizzes = data;
-            console.log(this.quizzes);
+           // console.log(this.quizzes);
           },
           (error) => {
             alert('error in loading quiz data');

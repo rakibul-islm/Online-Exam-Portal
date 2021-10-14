@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import api.examportal.helper.UserFoundException;
 import api.examportal.model.User;
 import api.examportal.model.UserRole;
+import api.examportal.model.exam.Exam;
 import api.examportal.repository.RoleRepository;
 import api.examportal.repository.UserRepository;
 import api.examportal.service.UserService;
@@ -17,6 +18,7 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+	
 
 	@Autowired
 	private RoleRepository roleRepository;
@@ -54,5 +56,20 @@ public class UserServiceImpl implements UserService {
 		this.userRepository.deleteById(userId);
 
 	}
+
+	@Override
+	public Set<User> getUserOfExam(Exam exam) {
+		return this.userRepository.findByExam(exam);
+	}
+
+	@Override
+	public User updateUser(User user) {
+		return this.userRepository.save(user);
+	}
+
+	
+	
+	
+	
 
 }

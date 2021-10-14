@@ -3,8 +3,20 @@
 html, body { height: 100%; background: #ECEFF1;}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.current{
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
+    border-top: 1px solid transparent;
+    cursor: pointer;
+}
 .text-center{
     text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.text-left{
+    text-align: left;
 }
 .full-width{
     width: 100%;

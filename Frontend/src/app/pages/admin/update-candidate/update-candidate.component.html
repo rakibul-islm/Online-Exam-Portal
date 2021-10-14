@@ -1,0 +1,51 @@
+<mat-card class="current">
+    <h1>Update Exam</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <form *ngIf="user" (submit)="updateCandidate()">
+                    <!-- first name  -->
+                    <mat-form-field class="w100" appearance="fill">
+                        <mat-label>First Name</mat-label>
+                        <input [(ngModel)]="user.firstName" type="text" name="firstName" placeholder="Enter here" matInput
+                            required />
+                    </mat-form-field>
+
+                    <!-- last name  -->
+
+                    <mat-form-field class="w100" appearance="fill">
+                        <mat-label>Last Name </mat-label>
+                        <input [(ngModel)]="user.lastName" type="text" name="lastName" placeholder="Enter here"
+                            matInput required />
+                    </mat-form-field>
+
+
+                    <!-- email -->
+                    <mat-form-field class="w100" appearance="fill">
+                        <mat-label>Email Address</mat-label>
+                        <input [(ngModel)]="user.email" type="text" name="email" placeholder="Enter here" matInput
+                            required />
+                    </mat-form-field>
+
+
+                    <!-- mobile  -->
+                    <mat-form-field class="w100" appearance="fill">
+                        <mat-label>Mobile </mat-label>
+                        <input [(ngModel)]="user.phone" type="text" name="phone" placeholder="Enter here"
+                            matInput required />
+                    </mat-form-field>
+
+
+
+
+
+                    <div class="container text-center mt20">
+                        <button mat-raised-button color="primary" type="submit">
+                            Update
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</mat-card>

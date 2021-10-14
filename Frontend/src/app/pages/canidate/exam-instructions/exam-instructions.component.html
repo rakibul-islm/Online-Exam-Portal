@@ -1,0 +1,82 @@
+<div class="bootstrap-wrapper" *ngIf="user.obtMarks==0">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <mat-card class="mt20">
+          <mat-card-header>
+            <!-- heading -->
+            <mat-card-title>
+              Read the instructions of this page carefully
+            </mat-card-title>
+            <mat-card-subtitle> One step more to go </mat-card-subtitle>
+          </mat-card-header>
+
+          <mat-card-content class="ml20">
+            <!-- content  -->
+
+            <h1>{{title}}</h1>
+            <p>{{user.exam.description}}</p>
+
+            <mat-divider></mat-divider>
+            <br />
+            <h1>Important Instructions</h1>
+
+            <ul>
+
+              <!-- Let the time of each questions is  2 minutes -->
+              <li>
+                You have to submit within
+                <b> {{ user.exam.numberOfQuestions * 1 }} Minutes.</b>
+              </li>
+              <li>
+                There are <b>{{ user.exam.numberOfQuestions }} questions</b> in this
+                exam.
+              </li>
+              <li>
+                Each questions carries
+                <b>{{ user.exam.maxMarks / user.exam.numberOfQuestions }} marks</b>. No
+                negative marking for wrong ones.
+              </li>
+              <li>All questions is of MCQ Types.</li>
+            </ul>
+
+            <mat-divider></mat-divider>
+            <br />
+            <h1>Attempting Exam</h1>
+            <ul>
+              <li>Click <b>Start Exam</b> button to start the exam (visibled on <b>{{this.user.exam.date}}</b>)</li>
+              <li>
+                The time will start the moment you click the Start Test button.
+              </li>
+              <li>
+                You can not resume this exam, if interrupted due to any reason.
+              </li>
+              <li>Scroll downl to move to next question.</li>
+              <li>Click on Submit button on completion of the exam.</li>
+            </ul>
+          </mat-card-content>
+          <mat-card-actions class="text-center">
+            <!-- actions -->
+            <button *ngIf="this.user.exam.date == this.sysdate" [routerLink]="'/exam-start/'+user.username+'/'+exId" class="mt10 mb10"
+              mat-raised-button color="primary">
+              Start Exam
+            </button>
+          </mat-card-actions>
+        </mat-card><br><br>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="bootstrap-wrapper" *ngIf="user.obtMarks!=0" id="component1" style="padding: 8rem;">
+  <div class="row mt20">
+    <div class="col-md-7 offset-md-3">
+      <mat-card class="text-center mt20" style="background-color: rgba(228, 126, 126, 0.438);">
+       
+        <h1 style="color: red;font-weight: bold;" >You have already participate this examination and your submitted result is recorded.</h1>
+      </mat-card>
+    </div>
+  </div>
+</div>

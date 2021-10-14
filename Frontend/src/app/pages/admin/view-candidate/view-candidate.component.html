@@ -1,0 +1,55 @@
+<h1 class="mt20">Candidates Information</h1>
+
+<div class="bootstrap-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container text-center">
+                <button mat-raised-button [routerLink]="'/admin/add-candidate/' + exId">
+                    <mat-icon mat-list-icon>person_add </mat-icon> Add Candidate
+                </button>
+            </div>
+            <br>
+
+
+            <table class="mat-elevation-z8 demo-table">
+
+                <tr class="head">
+                    <td scope="col">#SN</td>
+                    <td scope="col">Username</td>
+                    <td scope="col">Candidate</td>
+                    <td scope="col">Email</td>
+                    <td scope="col">Mobile</td>
+                    <td scope="col" class="text-center"> Update</td>
+                    <td scope="col" class="text-center"> Delete</td>
+                </tr>
+
+
+
+                <tr *ngFor="let u of user; let i = index">
+
+                    <td> &nbsp;&nbsp; {{ i + 1 }}.</td>
+                    <td [innerHTML]="u.username"></td>
+                    <td [innerHTML]="u.firstName + ' '+ u.lastName"></td>
+                    <td [innerHTML]="u.email"></td>
+                    <td [innerHTML]="u.phone"></td>
+                    <td>
+                        <button mat-button [routerLink]="'/admin/update-candidate/'+ u.username +'/' + exId">
+                            <mat-icon mat-list-icon>edit </mat-icon> Edit
+                        </button>
+                    </td>
+                    <td>
+                        <button mat-button (click)="deleteCandidate(u.id)">
+                            <mat-icon mat-list-icon>delete </mat-icon> Delete
+                        </button>
+                    </td>
+
+                </tr>
+            </table>
+
+
+
+
+
+        </div>
+    </div>
+</div>
