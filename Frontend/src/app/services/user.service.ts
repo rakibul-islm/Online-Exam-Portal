@@ -24,13 +24,20 @@ export class UserService {
     return this.http.put(`${Base_URL}/user/`,user)
   }
 
+  // update password
+  public updatePassword(user:any){
+    return this.http.put(`${Base_URL}/user/password`,user)
+  }
+
   //get candidates
   public getUsersOfExam(qid:any) {
+    
     return this.http.get(`${Base_URL}/user/exam/${qid}`);
   }
 
   //get single user
   public getUser(username:any) {
+   
     return this.http.get(`${Base_URL}/user/${username}`);
   }
 
@@ -38,4 +45,11 @@ export class UserService {
   public deleteCandidate(qid:any) {
     return this.http.delete(`${Base_URL}/user/${qid}`);
   }
+
+  //email result
+  public emailResult(emailRequest:any){
+   
+    return this.http.post(`${Base_URL}/sendmail`,emailRequest);
+  }
+
 }

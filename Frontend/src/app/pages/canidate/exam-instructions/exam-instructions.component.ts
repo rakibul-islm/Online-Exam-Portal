@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ExamService } from 'src/app/services/exam.service';
@@ -13,18 +13,22 @@ import Swal from 'sweetalert2';
 export class ExamInstructionsComponent implements OnInit {
 
   exId: any;
-  title:any;
-  description:any;
+  title: any;
+  description: any;
   exam: any;
   pipe: any;
   user: any = null;
+  date: any;
+  time: any;
   sysdate: any;
+  systime: any;
 
   constructor(
     private _route: ActivatedRoute,
     private _exam: ExamService,
     private login: LoginService,
-    private _router: Router
+    private _router: Router,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +39,7 @@ export class ExamInstructionsComponent implements OnInit {
 
     this._exam.getExam(this.exId).subscribe(
       (data: any) => {
-       // console.log(data);
+        // console.log(data);
         this.exam = data;
       },
       (error) => {
@@ -47,15 +51,21 @@ export class ExamInstructionsComponent implements OnInit {
 
     this.user = this.login.getUser();
     this.pipe = new DatePipe('en-US');
-    this.user.exam.date = this.pipe.transform(this.user.exam.date, 'longDate');
+    this.date = this.pipe.transform(this.user.exam.date, 'longDate');
+    this.time = this.user.exam.time;
 
     const now = Date.now();
     this.sysdate = this.pipe.transform(now, 'longDate');
+
+    var currentDate = new Date();
+    var futureDate = new Date(currentDate.getTime() + 1 * 60000);
+    this.systime = this.pipe.transform(futureDate, 'shortTime');
+    //console.log(this.systime);
   }
 
   startExam() {
     Swal.fire({
-      title: 'Do you want to start the quiz?',
+      title: 'Do you want to start the exam?',
 
       showCancelButton: true,
       confirmButtonText: `Start`,
@@ -69,5 +79,18 @@ export class ExamInstructionsComponent implements OnInit {
         Swal.fire('Changes are not saved', '', 'info');
       }
     });
+  }
+
+
+  examTime() {
+    if (this.systime > this.time) {
+      this._router.navigate(['/exam-start/' + this.user.username + '/' + this.exId]);
+
+    } else if(this.systime < this.time){
+      Swal.fire('Exam will start at ' + this.time, '', 'info');
+      this.login.logout();
+      this.location.back();
+      
+    }
   }
 }

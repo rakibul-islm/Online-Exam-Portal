@@ -12,7 +12,7 @@
       <mat-card *ngFor="let q of questions; let i = index" class="mt20 current">
         <mat-card-content>
           <p>
-            <b> Q {{ i + 1 }})</b>
+            <b> Q {{ i + 1 }}.</b>
             <span class="ml20" [innerHTML]="q.content"></span>
           </p>
 
@@ -42,7 +42,7 @@
           <button mat-button (click)="deleteQuestion(q.quesId)">
             <mat-icon mat-list-icon>delete </mat-icon> Delete
           </button>
-          <button mat-button>
+          <button [routerLink]="'/admin/update-question/' + q.quesId" mat-button>
             <mat-icon mat-list-icon>update </mat-icon> Update
           </button>
         </mat-card-actions>

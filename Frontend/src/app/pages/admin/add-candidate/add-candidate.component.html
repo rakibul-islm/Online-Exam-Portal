@@ -26,7 +26,7 @@
                                 <!-- password -->
                                 <mat-form-field class="w100">
                                     <mat-label>password</mat-label>
-                                    <input [(ngModel)]="user.password"  required name="password" type="text" matInput />
+                                    <input [(ngModel)]="user.password" required name="password" type="text" matInput />
                                 </mat-form-field>
                             </div>
                         </div>
@@ -36,14 +36,15 @@
                                 <!-- firstName -->
                                 <mat-form-field class="w100">
                                     <mat-label>First Name</mat-label>
-                                    <input [(ngModel)]="user.firstName"  required name="firstName" type="text" matInput />
+                                    <input [(ngModel)]="user.firstName" required name="firstName" type="text"
+                                        matInput />
                                 </mat-form-field>
                             </div>
                             <div class="col-md-6">
                                 <!-- lastName -->
                                 <mat-form-field class="w100">
                                     <mat-label>Last Name</mat-label>
-                                    <input [(ngModel)]="user.lastName"  required name="lastName" type="text" matInput />
+                                    <input [(ngModel)]="user.lastName" required name="lastName" type="text" matInput />
                                 </mat-form-field>
                             </div>
                         </div>
@@ -53,21 +54,23 @@
                                 <!-- email -->
                                 <mat-form-field class="w100">
                                     <mat-label>Email</mat-label>
-                                    <input [(ngModel)]="user.email"  required name="email" type="text" matInput />
+                                    <input [(ngModel)]="user.email" required name="email" type="text" matInput />
                                 </mat-form-field>
                             </div>
                             <div class="col-md-6">
                                 <!-- phone -->
                                 <mat-form-field class="w100">
                                     <mat-label>Mobile</mat-label>
-                                    <input [(ngModel)]="user.phone"  required name="phone" type="text" matInput />
+                                    <input [(ngModel)]="user.phone" required name="phone" type="text" matInput />
                                 </mat-form-field>
                             </div>
                         </div>
 
-                        <div class="container text-center mt20">
-                            <button type="submit" mat-raised-button color="primary"> Submit </button>
-                        </div>
+                        <!-- button -->
+                        <mat-card-actions class="text-center ">
+                            <button mat-raised-button (click)="Back()"> Back </button>
+                            <button type="submit" mat-raised-button color="primary"> Add </button>
+                        </mat-card-actions>
                     </form>
                 </mat-card-content>
             </mat-card>

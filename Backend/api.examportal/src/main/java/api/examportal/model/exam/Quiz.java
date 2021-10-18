@@ -22,6 +22,8 @@ public class Quiz {
 	private String numberOfQuestions;
 
 	private boolean active = false;
+	
+	private int attempt;
 	// add..
 
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -32,6 +34,16 @@ public class Quiz {
 	private Set<Question> questions = new HashSet<>();
 
 	public Quiz() {
+	}
+	
+	
+
+	public int getAttempt() {
+		return attempt;
+	}
+
+	public void setAttempt(int attempt) {
+		this.attempt = attempt;
 	}
 
 	public Long getqId() {

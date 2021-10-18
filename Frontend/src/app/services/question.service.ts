@@ -26,10 +26,21 @@ export class QuestionService {
     return this._http.get(`${Base_URL}/question/exam/${qid}`);
   }
 
+  //getSingleQuestion
+  public getSingleQuestion(quesId:any) {
+    return this._http.get(`${Base_URL}/question/${quesId}`);
+  }
+
   //add question
   public addQuestion(question:any) {
     return this._http.post(`${Base_URL}/question/`, question);
   }
+
+  //update question
+  public updateQuestion(question:any) {
+    return this._http.put(`${Base_URL}/question/`, question);
+  }
+
   //delete question
   public deleteQuestion(questionId:any) {
     return this._http.delete(`${Base_URL}/question/${questionId}`);

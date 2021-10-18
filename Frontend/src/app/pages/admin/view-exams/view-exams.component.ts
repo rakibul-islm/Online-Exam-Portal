@@ -17,7 +17,7 @@ export class ViewExamsComponent implements OnInit {
     this._exam.exams().subscribe(
       (data: any) => {
         this.exams = data;
-        console.log(this.exams);
+        //console.log(this.exams);
       },
       (error) => {
         console.log(error);

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add-question',
@@ -29,7 +30,8 @@ export class AddQuestionComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _question: QuestionService
+    private _question: QuestionService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -71,4 +73,9 @@ export class AddQuestionComponent implements OnInit {
       }
     );
   }
+
+    // back button
+    Back(){
+      this.location.back();
+    }
 }

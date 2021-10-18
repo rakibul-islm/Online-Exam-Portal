@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { CategoryService } from 'src/app/services/category.service';
@@ -27,7 +28,8 @@ export class AddQuizComponent implements OnInit {
   constructor(
     private _cat: CategoryService,
     private _snack: MatSnackBar,
-    private _quiz: QuizService
+    private _quiz: QuizService,
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -77,4 +79,9 @@ export class AddQuizComponent implements OnInit {
       }
     );
   }
+
+    // back button
+    Back(){
+      this.location.back();
+    }
 }

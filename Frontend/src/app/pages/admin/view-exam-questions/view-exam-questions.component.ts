@@ -28,7 +28,7 @@ export class ViewExamQuestionsComponent implements OnInit {
     this.qTitle = this._route.snapshot.params.title;
     this._question.getQuestionsOfExam(this.exId).subscribe(
       (data: any) => {
-        console.log(data);
+       // console.log(data);
         this.questions = data;
       },
       (error) => {

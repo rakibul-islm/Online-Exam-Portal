@@ -7,9 +7,12 @@ import { AddExamComponent } from './pages/admin/add-exam/add-exam.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { QuestionUpdateComponent } from './pages/admin/question-update/question-update.component';
 import { ResultComponent } from './pages/admin/result/result.component';
+import { UpdateAdminComponent } from './pages/admin/update-admin/update-admin.component';
 import { UpdateCandidateComponent } from './pages/admin/update-candidate/update-candidate.component';
 import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.component';
+import { UpdatePasswordComponent } from './pages/admin/update-password/update-password.component';
 import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 import { ViewCandidateComponent } from './pages/admin/view-candidate/view-candidate.component';
 import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
@@ -75,6 +78,9 @@ const routes: Routes = [
       {
         path: 'add-question/:qid/:title', component: AddQuestionComponent,
       },
+      {
+        path: 'update-question/:quesId', component: QuestionUpdateComponent,
+      },
       
 
 
@@ -101,6 +107,12 @@ const routes: Routes = [
       },
       {
         path: 'update-candidate/:username/:exId', component: UpdateCandidateComponent,
+      },
+      {
+        path: 'update-profile/:username', component: UpdateAdminComponent,
+      },
+      {
+        path: 'secuirity-update/:username', component: UpdatePasswordComponent,
       },
       {
         path: 'results/:exId', component: ResultComponent,

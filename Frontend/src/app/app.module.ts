@@ -56,6 +56,12 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { UpdateCandidateComponent } from './pages/admin/update-candidate/update-candidate.component';
 import { ResultComponent } from './pages/admin/result/result.component';
+import { UpdateAdminComponent } from './pages/admin/update-admin/update-admin.component';
+import { UpdatePasswordComponent } from './pages/admin/update-password/update-password.component';
+import { QuestionUpdateComponent } from './pages/admin/question-update/question-update.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 @NgModule({
   declarations: [
@@ -92,6 +98,9 @@ import { ResultComponent } from './pages/admin/result/result.component';
     AddExamQuestionComponent,
     UpdateCandidateComponent,
     ResultComponent,
+    UpdateAdminComponent,
+    UpdatePasswordComponent,
+    QuestionUpdateComponent,
 
   
   ],
@@ -116,7 +125,9 @@ import { ResultComponent } from './pages/admin/result/result.component';
     MatTableModule,
     MatDatepickerModule,
     NgxMaterialTimepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    ToastrModule,
+    NgxSpinnerModule
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

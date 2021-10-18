@@ -38,7 +38,7 @@
 
           <!-- active field   -->
 
-          <mat-slide-toggle name="active" [(ngModel)]="examData.active" class="mt20" placeholder="Enter here">
+          <mat-slide-toggle name="active" [(ngModel)]="examData.active" color="primary" class="mt20">
             Publish Status
           </mat-slide-toggle>
 
@@ -57,7 +57,8 @@
             <div class="col-md-6">
               <!-- Time  -->
               <mat-form-field class="w100" appearance="fill">
-                <input name="time" [(ngModel)]="examData.time" [ngxTimepicker]="timepicker" placeholder="12:00 AM" matInput>
+                <input name="time" [(ngModel)]="examData.time" [ngxTimepicker]="timepicker" placeholder="12:00 AM"
+                  matInput>
                 <ngx-material-timepicker #timepicker></ngx-material-timepicker>
               </mat-form-field>
             </div>
@@ -66,9 +67,11 @@
 
 
 
-          <div class="container text-center mt20">
-            <button mat-raised-button color="primary" type="submit"> Add </button>
-          </div>
+          <!-- button -->
+          <mat-card-actions class="text-center ">
+            <button mat-raised-button (click)="Back()"> Back </button>
+            <button type="submit" mat-raised-button color="primary"> Add </button>
+          </mat-card-actions>
         </form>
       </div>
     </div>

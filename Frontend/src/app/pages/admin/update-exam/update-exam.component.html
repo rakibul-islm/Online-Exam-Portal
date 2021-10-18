@@ -1,103 +1,74 @@
 <mat-card class="current">
-    <h1>Update Exam</h1>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 offset-md-2">
-          <form *ngIf="exam" (submit)="updateData()">
-            <!-- title field  -->
-            <mat-form-field class="w100" appearance="fill">
-              <mat-label>Enter Title</mat-label>
-              <input
-                [(ngModel)]="exam.title"
-                type="text"
-                name="title"
-                placeholder="Enter here"
-                matInput
-                required
-              />
-            </mat-form-field>
-  
-            <!-- description field  -->
-  
-            <mat-form-field class="w100" appearance="fill">
-              <mat-label>Enter Description </mat-label>
-              <textarea
-                [(ngModel)]="exam.description"
-                type="text"
-                name="description"
-                placeholder="Enter here"
-                matInput
-                rows="5"
-              ></textarea>
-            </mat-form-field>
-  
-            <div class="row">
-              <div class="col-md-6">
-                <!-- //max marks -->
-                <mat-form-field class="w100" appearance="fill">
-                  <mat-label>Full Marks</mat-label>
-                  <input
-                    [(ngModel)]="exam.maxMarks"
-                    type="text"
-                    name="maxMarks"
-                    placeholder="Enter here"
-                    matInput
-                  />
-                </mat-form-field>
-              </div>
-              <div class="col-md-6">
-                <!-- number of question to be shown  -->
-                <mat-form-field class="w100" appearance="fill">
-                  <mat-label>Number of Question</mat-label>
-                  <input
-                    [(ngModel)]="exam.numberOfQuestions"
-                    type="text"
-                    name="numberOfQuestions"
-                    placeholder="Enter here"
-                    matInput
-                  />
-                </mat-form-field>
-              </div>
-            </div>
-  
-            <!-- active field   -->
-  
-            <mat-slide-toggle color="primary"
-              name="active"
-              [(ngModel)]="exam.active"
-              class="mt20"
-            >
-              Publish Status
-            </mat-slide-toggle>
+  <h1>Update Exam</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form *ngIf="exam" (submit)="updateData()">
+          <!-- title field  -->
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Enter Title</mat-label>
+            <input [(ngModel)]="exam.title" type="text" name="title" placeholder="Enter here" matInput required />
+          </mat-form-field>
 
-            <div class="row mt20">
-              <div class="col-md-6">
-                <!-- //date -->
-                <mat-form-field class="w100" appearance="fill">
-                  <mat-label>Choose a date</mat-label>
-                  <input name="date" [(ngModel)]="exam.date" matInput [matDatepicker]="datepicker">
-                  <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
-                  <mat-datepicker #datepicker></mat-datepicker>
-                </mat-form-field>
-  
-              </div>
-              <div class="col-md-6">
-                <!-- Time  -->
-                <mat-form-field class="w100" appearance="fill">
-                  <input name="time" [(ngModel)]="exam.time" [ngxTimepicker]="timepicker" placeholder="12:00 AM" matInput>
-                  <ngx-material-timepicker #timepicker></ngx-material-timepicker>
-                </mat-form-field>
-              </div>
+          <!-- description field  -->
+
+          <mat-form-field class="w100" appearance="fill">
+            <mat-label>Enter Description </mat-label>
+            <textarea [(ngModel)]="exam.description" type="text" name="description" placeholder="Enter here" matInput
+              rows="5"></textarea>
+          </mat-form-field>
+
+          <div class="row">
+            <div class="col-md-6">
+              <!-- //max marks -->
+              <mat-form-field class="w100" appearance="fill">
+                <mat-label>Full Marks</mat-label>
+                <input [(ngModel)]="exam.maxMarks" type="text" name="maxMarks" placeholder="Enter here" matInput />
+              </mat-form-field>
             </div>
-  
-            <div class="container text-center mt20">
-              <button mat-raised-button color="primary" type="submit">
-                Update
-              </button>
+            <div class="col-md-6">
+              <!-- number of question to be shown  -->
+              <mat-form-field class="w100" appearance="fill">
+                <mat-label>Number of Question</mat-label>
+                <input [(ngModel)]="exam.numberOfQuestions" type="text" name="numberOfQuestions"
+                  placeholder="Enter here" matInput />
+              </mat-form-field>
             </div>
-          </form>
-        </div>
+          </div>
+
+          <!-- active field   -->
+
+          <mat-slide-toggle color="primary" name="active" [(ngModel)]="exam.active" class="mt20">
+            Publish Status
+          </mat-slide-toggle>
+
+          <div class="row mt20">
+            <div class="col-md-6">
+              <!-- //date -->
+              <mat-form-field class="w100" appearance="fill">
+                <mat-label>Choose a date</mat-label>
+                <input name="date" [(ngModel)]="exam.date" matInput [matDatepicker]="datepicker">
+                <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker></mat-datepicker>
+              </mat-form-field>
+
+            </div>
+            <div class="col-md-6">
+              <!-- Time  -->
+              <mat-form-field class="w100" appearance="fill">
+                <input name="time" [(ngModel)]="exam.time" [ngxTimepicker]="timepicker" placeholder="12:00 AM" matInput>
+                <ngx-material-timepicker #timepicker></ngx-material-timepicker>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="container text-center mt20">
+            <button mat-raised-button color="primary" type="submit">
+              Update
+            </button>
+          </div>
+        </form>
       </div>
     </div>
-  </mat-card>
-  
+  </div>
+</mat-card>

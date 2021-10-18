@@ -120,6 +120,14 @@ public class UserController {
 		//user.setPassword(this.bCryptPasswordEncoder.encode("123"));
 		return ResponseEntity.ok(this.userService.updateUser(user));
 	}
+	
+	// update password
+		@PutMapping("/password")
+		public ResponseEntity<User> updatePassword(@RequestBody User user) {
+
+			user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
+			return ResponseEntity.ok(this.userService.updateUser(user));
+		}
 
 	// update api
 	@ExceptionHandler(UserFoundException.class)

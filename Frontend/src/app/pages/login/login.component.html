@@ -1,51 +1,54 @@
 <div class="bootstrap-wrapper">
-    <div class="container" style="margin-top: 5rem;">
-        <div class="row" style="margin-top: 20px;">
-            <div class="col-md-6 offset-md-3">
-              <mat-card>
-                <div class="container text-center">
-                    <img src="../../../assets/logo.png" alt="">
-                    
-                </div>
+  <div class="container" style="margin-top: 3rem;">
+    <div class="row" style="margin-top: 20px;">
+      <div class="col-md-6 offset-md-3">
+        <mat-card>
+          <div class="container text-center">
+            <img src="../../../assets/logo.png" alt="">
 
-                <h1 class="text-center">Login Here !!</h1>
+          </div>
 
-
-                <form (ngSubmit)="formSubmit()">
-
-                    <!-- user name -->
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Username</mat-label>
-                        <input required [(ngModel)]="loginData.username"  name="username" matInput placeholder="Enter here">
-                      </mat-form-field>
-
-                      <!-- password -->
-                    <mat-form-field class="full-width" appearance="outline">
-                        <mat-label>Password</mat-label>
-                        <input required type="password" [(ngModel)]="loginData.password" name="password" matInput placeholder="Enter here">
-                      </mat-form-field>
-
-                 
+          <h1 class="text-center">Login Here !!</h1>
 
 
-                      <!-- button -->
+          <form (ngSubmit)="formSubmit()">
 
-                      <div class="container text-center mt20 mb20">
-                        <button type="submit" mat-raised-button color="primary">Login</button>
-                        <button type="reset" style="margin-left: 20px;" mat-raised-button >Reset</button>
-                      </div>
+              <!-- user name -->
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Username</mat-label>
+                <input required [(ngModel)]="loginData.username" name="username" matInput placeholder="Enter here">
+              </mat-form-field>
 
-                </form>
-                
-              </mat-card>
+            <!-- password -->
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input required type="password" [(ngModel)]="loginData.password" name="password" matInput
+                placeholder="Enter here">
+            </mat-form-field>
 
-              <br><br>
 
+
+
+            <!-- button -->
+
+            <button type="reset" mat-button>
+              <mat-icon mat-list-icon>restart_alt</mat-icon> Reset
+            </button>
+            <div class="container text-center mt20 mb20">
+              <button type="submit" class="w100" mat-raised-button color="primary">Login</button>
             </div>
 
+          </form>
 
-        </div>
+        </mat-card>
+
+        <br><br>
+
+      </div>
 
 
     </div>
+
+
+  </div>
 </div>

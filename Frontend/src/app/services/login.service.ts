@@ -15,6 +15,7 @@ export class LoginService {
 
   //current user: which is loggedin
   public getCurrentUser() {
+    
     return this.http.get(`${Base_URL}/current-user`);
   }
 

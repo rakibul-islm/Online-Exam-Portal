@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
@@ -23,7 +24,8 @@ export class AddCandidateComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _service: UserService
+    private _service: UserService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {
@@ -68,4 +70,9 @@ export class AddCandidateComponent implements OnInit {
       }
     );
   }
+
+    // back button
+    Back(){
+      this.location.back();
+    }
 }

@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ExamService } from 'src/app/services/exam.service';
@@ -24,7 +24,8 @@ export class AddExamComponent implements OnInit {
 
   constructor(
     private _snack: MatSnackBar,
-    private _exam: ExamService
+    private _exam: ExamService,
+    private location: Location
   ) { }
 
   ngOnInit(): void {}
@@ -60,4 +61,9 @@ export class AddExamComponent implements OnInit {
       }
     );
   }
+
+    // back button
+    Back(){
+      this.location.back();
+    }
 }

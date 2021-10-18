@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -11,11 +12,11 @@ import Swal from 'sweetalert2';
 })
 export class AddExamQuestionComponent implements OnInit {
 
-  public Editor:any = ClassicEditor;
+  public Editor: any = ClassicEditor;
 
-  exId:any;
-  qTitle:any;
-  question:any = {
+  exId: any;
+  qTitle: any;
+  question: any = {
     exam: {},
     content: '',
     option1: '',
@@ -27,8 +28,9 @@ export class AddExamQuestionComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _question: QuestionService
-  ) {}
+    private _question: QuestionService,
+    private location: Location
+  ) { }
 
   ngOnInit(): void {
     this.exId = this._route.snapshot.params.qid;
@@ -66,5 +68,10 @@ export class AddExamQuestionComponent implements OnInit {
         Swal.fire('Error', 'Error in adding question', 'error');
       }
     );
+  }
+
+  // back button
+  Back(){
+    this.location.back();
   }
 }

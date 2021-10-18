@@ -14,6 +14,7 @@ export class StartComponent implements OnInit {
 
   qid: any;
   questions: any;
+  quiz: any;
 
   marksGot: any = 0;
   correctAnswers: any = 0;
@@ -27,7 +28,8 @@ export class StartComponent implements OnInit {
   constructor(
     private locationSt: LocationStrategy,
     private _route: ActivatedRoute,
-    private _question: QuestionService
+    private _question: QuestionService,
+    private _quiz: QuizService,
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +39,20 @@ export class StartComponent implements OnInit {
     this.loadQuestions();
 
 
+    this._quiz.getQuiz(this.qid).subscribe(
+      (data: any) => {
+        this.quiz = data;
+        this.quiz.attempt = this.quiz.attempt + 1;
+        //console.log(this.quiz);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
   }
+
+
   loadQuestions() {
     this._question.getQuestionsOfQuizForTest(this.qid).subscribe(
       (data: any) => {
@@ -76,9 +91,24 @@ export class StartComponent implements OnInit {
     }).then((e) => {
       if (e.isConfirmed) {
         this.evalQuiz();
+        this.updateData();
       }
     });
   }
+
+
+  public updateData() {
+    this._quiz.updateQuiz(this.quiz).subscribe(
+      (data) => {
+        console.log("attempt")
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+
 
   startTimer() {
     let t = window.setInterval(() => {

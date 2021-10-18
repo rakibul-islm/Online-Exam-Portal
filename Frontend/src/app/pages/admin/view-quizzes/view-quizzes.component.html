@@ -11,44 +11,44 @@
     <mat-card-content>
       <p>{{ q.description }}</p>
     </mat-card-content>
-    <mat-card-actions>
-      <button
-        [routerLink]="'/admin/view-questions/' + q.qId + '/' + q.title"
-        mat-flat-button
-        color="accent"
-      >
-        Questions
-      </button>
-      <button mat-stroked-button color="primary" class="ml20">
-        Max Marks: {{ q.maxMarks }}
-      </button>
-      <button mat-stroked-button color="primary" class="ml20">
+
+
+    <div class="text-right">
+      <button mat-button class="ml20">
         Questions: {{ q.numberOfQuestions }}
       </button>
-      <button
-        [routerLink]="'/admin/quiz/' + q.qId"
-        mat-flat-button
-        color="primary"
-        class="ml20"
-      >
-        Update
+      <button mat-button class="ml20">
+        Full Marks: {{ q.maxMarks }}
       </button>
-      <button mat-flat-button color="primary" class="ml20">Attempts</button>
+    </div>
+
+
+
+    <mat-card-actions>
+      <button [routerLink]="'/admin/view-questions/' + q.qId + '/' + q.title" mat-button>
+        <mat-icon mat-list-icon>question_answer </mat-icon> Questions
+      </button>
   
-      <button
-        mat-flat-button
-        color="warn"
-        class="ml10"
-        (click)="deleteQuiz(q.qId)"
-      >
-        Delete
+      <button  mat-button class="ml20">
+        <mat-icon mat-list-icon>visibility </mat-icon> Attempt ({{ q.attempt }})
       </button>
+  
+      <button [routerLink]="'/admin/quiz/' + q.qId" mat-button class="ml20">
+        <mat-icon mat-list-icon>update </mat-icon> Update
+      </button>
+  
+      <button mat-button class="ml10" (click)="deleteQuiz(q.qId)">
+        <mat-icon mat-list-icon>delete </mat-icon> Delete
+      </button>
+  
+  
     </mat-card-actions>
+
   </mat-card>
   
   <div class="container text-center mt40">
     <button routerLink="/admin/add-quiz" mat-raised-button >
-      Add New Quiz
+      <mat-icon mat-list-icon>post_add </mat-icon> Add New Quiz
     </button>
   </div>
   

@@ -28,7 +28,7 @@
                     <td *ngIf="u.obtMarks!=0" [innerHTML]="u.phone"></td>
                     <td *ngIf="u.obtMarks!=0" class="text-center green" [innerHTML]="u.obtMarks"></td>
                     <td *ngIf="u.obtMarks!=0" class="text-center">
-                        <button mat-button (click)="deleteCandidate(u.id)">
+                        <button mat-button (click)="sendEmail(u.username)">
                             <mat-icon mat-list-icon>send </mat-icon> Send Email
                         </button>
                     </td>

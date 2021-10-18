@@ -1,31 +1,27 @@
 <mat-card *ngIf="user" class="current">
-    <h1>Profile Details</h1>
-    <!-- {{ user | json }} -->
-    <mat-card-content>
-      <div class="bootstrap-wrapper">
-        <div class="container">
-          <div class="container text-center">
-            <img
-              src="../../../assets/profile.jpg"
-              alt="rakib"
-              class="profile-image"
-            />
-  
-            <h1 class="mt20">{{ user.firstName }} {{ user.lastName }}</h1>
-          </div>
-  
-          <div class="row">
-            <div class="col-md-10 offset-md-1">
-              <!-- //table Details  -->
-              <mat-card class="current">
+  <h1>Profile Details</h1>
+  <!-- {{ user | json }} -->
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="container">
+        <div class="container text-center">
+          <img src="../../../assets/profile.jpg" alt="rakib" class="profile-image" />
+
+          <h1 class="mt20">{{ user.firstName }} {{ user.lastName }}</h1>
+        </div>
+
+        <div class="row">
+          <div class="col-md-10 offset-md-1">
+            <!-- //table Details  -->
+            <mat-card class="current">
               <table class="table text-center">
                 <tr class="head">
-                  <td >Username</td>
+                  <td>Username</td>
                   <td>{{ user.username }}</td>
                 </tr>
                 <tr>
-                  <td>User Id</td>
-                  <td>EXAM{{ user.id }}</td>
+                  <td>Email Address</td>
+                  <td>{{ user.email }}</td>
                 </tr>
                 <tr>
                   <td>Mobile No</td>
@@ -40,16 +36,22 @@
                   <td>{{ user.enabled ? "ACTIVE" : "NOTACTIVE" }}</td>
                 </tr>
               </table>
-              <mat-card-actions class="text-center">
-                <button mat-button><mat-icon >sync_alt</mat-icon>  UPDATE</button>
-                <button mat-button><mat-icon >share</mat-icon>  SHARE</button>
+              <mat-card-actions class="text-center ">
+                <button [routerLink]="'/admin/update-profile/'+ user.username" mat-button>
+                  <mat-icon>update</mat-icon> PROFILE UPDATE
+                </button>
+                <button [routerLink]="'/admin/secuirity-update/'+ user.username" mat-button>
+                  <mat-icon>security</mat-icon> SECURITY UPDATE
+                </button>
+                <button mat-button>
+                  <mat-icon>share</mat-icon> SHARE
+                </button>
               </mat-card-actions>
             </mat-card>
-            </div>
           </div>
         </div>
       </div>
-    </mat-card-content>
-    
-  </mat-card>
-  
+    </div>
+  </mat-card-content>
+
+</mat-card>
