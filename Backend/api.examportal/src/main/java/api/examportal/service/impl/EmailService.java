@@ -35,7 +35,7 @@ public class EmailService {
 
 			@Override
 			protected PasswordAuthentication getPasswordAuthentication() {
-				return new PasswordAuthentication("online.examportal.quiz@gmail.com", "exam@123");
+				return new PasswordAuthentication("online.examportal.quiz@gmail.com", "******");
 			}
 
 		});
