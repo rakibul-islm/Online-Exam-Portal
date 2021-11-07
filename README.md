@@ -1,5 +1,5 @@
 # Online-Exam-Portal
- **Web Application**
+ Web Application
 ## Backend: 
 Spring Boot, Java, JPA, Hibernate, MySQL Database for Rest API
 ## Frontend: 
