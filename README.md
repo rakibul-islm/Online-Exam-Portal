@@ -9,4 +9,4 @@ Angular, Angular Material, HTML, CSS, Bootstrap
 
 **Candidate:** After successfully log in, Candidate will be able to participate the exam in fixed duration (auto submit enabled).
 
-**Registered User:** Able to attend Quizzes in different Categories and view his/her quiz result.
+**Registered User:** After completing registration, a Registered User will be able to attend Quizzes in different Categories and view his/her quiz result.
